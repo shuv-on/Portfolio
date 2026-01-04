@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "QR Drop - GNOME Extension",
+    "description": "A productivity tool for Linux users. Quickly generate QR codes from clipboard text or links directly within the GNOME desktop environment.",
+    "image": "https://extensions.gnome.org/extension-data/icons/icon_9030.png",
+    "tags": ["GJS", "Linux", "Open Source", "GNOME Shell", "GNOME Extension"],
+    "links": {
+      "github": "https://github.com/shuv-on/qr-drop",
+      "live": "https://extensions.gnome.org/extension/9030/qr-drop/"
+    },
+    "category": "Open Source"
+  },
+  {
+    "id": 2,
+    "title": "AssetVerse",
+    "description": "A comprehensive asset management system. Users can track, manage, and monitor company assets with real-time updates and reporting features.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
+    "tags": ["React", "Firebase", "Tailwind CSS", "Recharts"],
+    "links": {
+      "github": "https://github.com/shuv-on/asset-verse-client",
+      "live": "https://asset-verses.web.app/"
+    },
+    "category": "Web App"
+  },
+  {
+    "id": 3,
+    "title": "TravelEase",
+    "description": "A travel booking platform designed for seamless user experience. Features include destination browsing, booking management, and user reviews.",
+    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1600&auto=format&fit=crop",
+    "tags": ["React", "Node.js", "MongoDB", "Express"],
+    "links": {
+      "github": "https://github.com/shuv-on/travel-ease-client",
+      "live": "https://travel-ease-1dfb8.web.app/"
+    },
+    "category": "Full Stack"
+  },
+  {
+    "id": 4,
+    "title": "Quiz.IO",
+    "description": "An interactive quiz application where users can test their knowledge across various categories. Features real-time scoring and time limits.",
+    "image": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=1600&auto=format&fit=crop",
+    "tags": ["React", "API Integration", "CSS3", "Java Spring Boot", "MYSQL"],
+    "links": {
+      "github": "https://github.com/shuv-on/Quiz.IO",
+      "live": "http://quiz.io.shuvon.surge.sh/"
+    },
+    "category": "Web App"
+  }
+]
