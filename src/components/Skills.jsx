@@ -78,9 +78,12 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Technical <span className="text-primary">Skills</span>
+            Technical 
+            {/* Animated Gradient on "Skills" */}
+            <span className="text-gradient-animate font-extrabold ml-2">Skills</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+          {/* Animated Gradient Background on Underline */}
+          <div className="w-20 h-1 btn-gradient-animate mx-auto rounded-full"></div>
           <p className="mt-4 text-gray-600 dark:text-gray-400">
             A showcase of my technical expertise and the technologies I work with.
           </p>
@@ -108,17 +111,19 @@ const Skills = () => {
                 {category.skills.map((skill, idx) => (
                   <motion.div 
                     key={idx} 
-                    whileHover={{ scale: 1.1 }} // Hover করলে বড় হবে
+                    whileHover={{ scale: 1.1 }} 
                     className="flex flex-col items-center gap-2 group cursor-pointer"
                   >
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center p-2 bg-gray-50 dark:bg-gray-800 rounded-xl group-hover:bg-sky-50 dark:group-hover:bg-sky-900/20 transition-colors duration-300 shadow-sm">
+                    {/* Icon Container with subtle gradient glow on hover */}
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center p-2 bg-gray-50 dark:bg-gray-800 rounded-xl group-hover:bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 transition-all duration-300 shadow-sm border border-transparent group-hover:border-blue-100 dark:group-hover:border-blue-900/30">
                       <img 
                         src={skill.icon} 
                         alt={skill.name} 
                         className="w-full h-full object-contain filter dark:grayscale-[20%] group-hover:grayscale-0 transition-all duration-300" 
                       />
                     </div>
-                    <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors">
+                    {/* Animated Gradient Text on Hover */}
+                    <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-pink-600 transition-all">
                       {skill.name}
                     </span>
                   </motion.div>

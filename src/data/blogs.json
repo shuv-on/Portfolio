@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "My First Open Source Contribution: QR Drop 🚀",
+    "date": "January 4, 2026",
+    "excerpt": "As an engineering student, I believe the best tools are born from personal necessities. Introducing QR Drop – a lightweight GNOME Shell Extension.",
+    "content": "Alhamdulillah! Thrilled to announce my first contribution to the Open Source world! 🚀\n\nAs an engineering student, I believe the best tools are born from personal necessities.\n\nThe idea for this extension struck me while I was working on a recent project. I needed to quickly generate a QR code for a specific link, and I found myself getting frustrated by the friction. I had to pause my work, search for an online generator, deal with ads, or rely on internet connectivity just for a simple QR code.\n\nOn top of that, I often struggled to transfer clipboard data (Links/Text) from my PC to my phone quickly. Relying on messaging apps or emailing myself felt inefficient and broke my workflow.\n\nSo, I decided to engineer a solution myself. Introducing \"QR Drop\" – a lightweight GNOME Shell Extension, now approved by the official GNOME team! 🎉\n\n💡 What does it solve?\n\nJust Copy (Ctrl+C) & Click – and your QR code is ready! ⚡\n\nInstant QR Generation: Whether for a project asset or sharing a link, just copy the text and click. No browser needed.\nSeamless PC-to-Mobile Transfer: Send any text/link to your phone instantly by scanning the code.\n100% Offline & Private: Built using Cairo 2D Graphics rendering, ensuring no data ever leaves your device.\n\n🛠️ Tech Stack: Built using JavaScript (GJS), adhering to the latest ESM standards for GNOME 45+.",
+    "tags": ["Open Source", "GNOME", "Linux", "GJS"],
+    "link": "https://extensions.gnome.org/extension/9030/qr-drop/" 
+  },
+  {
+    "id": 2,
+    "title": "Automating Daily Git Workflow with Bash ⚡",
+    "date": "January 5, 2026",
+    "excerpt": "Tired of typing git add, commit, and push repeatedly? Here is a simple 3-line Bash function to automate your daily version control workflow.",
+    "content": "Automating my daily Git workflow with a simple Bash function! 🚀\n\nপ্রতিদিন কোড করার সময় বারবার git add, git commit এবং git push টাইপ করা বেশ বিরক্তিকর এবং সময়সাপেক্ষ। তাই ভাবলাম, এই কাজটিকে একটু অটোমেট করে নিলে কেমন হয়? 🙂\n\nতাই আমি আমার .bashrc ফাইলে ছোট্ট একটি Bash Function যুক্ত করেছি যা এই ৩টি কাজ এক কমান্ডেই করে দেয়।\n\nHow to set it up:\n\n1️⃣ Open terminal and write: `nano ~/.bashrc`\n\n2️⃣ Write snippet: ফাইলের একদম নিচের দিকে এই snippet টি লিখে save করে নিলেই done 👇\n\ngacp() {\n git add . && git commit -m \"$1\" && git push\n}\n\n3️⃣ Reload the file: `source ~/.bashrc`\n\nব্যাস! এখন থেকে git add, git commit, git push এর বদলে শুধু `gacp \"Commit message\"` দিলেই কাজ শেষ।\n\n৩টি গিট কমান্ড এখন ১টিতে! 🛠️",
+    "tags": ["Git", "Bash", "Automation", "Productivity"],
+    "link": "https://github.com/shuv-on"
+  },
+  {
+    "id": 3,
+    "title": "No System Is Safe: Intel ME & Hardware Security 🛡️",
+    "date": "January 6, 2026",
+    "excerpt": "Windows 10 support has ended. But is Linux completely safe? Let's dive into Intel Management Engine (ME), Ring -3 privileges, and hardware vulnerabilities.",
+    "content": "আজ একটা ইন্টারেস্টিং জিনিস শেয়ার করছি। যদিও LinkedIn-এ পোস্ট একদম করা হয় না বললেই চলে। 😅\n\nআজ দেখলাম, Windows 10-এর অফিসিয়ালি আপডেট এবং সিকিউরিটি সাপোর্ট দেওয়া বন্ধ করে দিয়েছে Microsoft। যদিও আমি Ubuntu use করি, Windows নিয়ে কোনো মাথাব্যথা নেই।\n\nতো আসল কথায় আসি। ২০২৩ সাল পর্যন্ত আমিও Windows use করতাম। এরপর বিভিন্ন কারণে (প্রাইভেসি, পারফরম্যান্স) Linux-based distro-তে সুইচ করি। আমরা অনেকেই আছি যারা security নিয়ে একটু বেশিই কনসার্নড। তাই best performance, less malware attack – এসব কারণে Linux-based distro use করে থাকি। আর এসব দিক বিবেচনা করলে Linux-based distro গুলো সত্যিই সেরা।\n\nকিন্তু প্রশ্ন থেকে যায়: আসলেই কি আমরা safe? আমাদের তথ্য সুরক্ষিত? ধরে নিলাম আমাদের সিস্টেম পুরোপুরি safe – কোনো virus, malware attack বা hacker আক্রমণ করতে পারলো না। তবুও কি আমরা ১০০% সিকিউর? উত্তর: একদম না! কারণ, সমস্যাটা সফটওয়্যার লেভেলে নয় – এটা হার্ডওয়্যারে লুকিয়ে আছে।\n\nকিভাবে? ২০১৭ সালের দিকে Intel-এর একটা বড় সিকিউরিটি ইস্যু বেরিয়ে পড়ে – Intel-SA-00086 vulnerability। এটা Intel Management Engine (ME)-এর ফার্মওয়্যারে ছিল, যা প্রায় সব Intel CPU-তে (Core i3/i5/i7, Xeon) ইন্টিগ্রেটেড। ME হলো একটা \"হিডেন\" সাবসিস্টেম – যেন তোমার CPU-এর ভিতরে আরেকটা ছোট কম্পিউটার চলছে সবসময় (এমনকি PC অফ থাকলেও)! এটা রিমোট অ্যাক্সেস, সিকিউরিটি চেক করে, কিন্তু এর ভালনারেবিলিটি দিয়ে হ্যাকাররা unauthorized access পেয়ে পুরো সিস্টেম কন্ট্রোল নিতে পারতো – মেমরি, নেটওয়ার্ক, এমনকি কীবোর্ড-স্ক্রিন পর্যন্ত। এটা OS (Windows বা Linux) থেকে আলাদা, তাই এমনকি Ubuntu চালালেও এই \"backdoor\"-এর মতো ফিচার থেকে পুরোপুরি সেফ নেই। Intel প্যাচ দিয়েছে, কিন্তু পুরনো CPU-তে ফিক্স নেই, এবং এর প্রোপ্রাইটারি কোডের কারণে অনেকে এটাকে \"হার্ডওয়্যার backdoor\" বলে।\n\nআরও ইন্টারেস্টিং: ME একটা Minix OS (একটা microkernel-based OS) চালায় ring -3 প্রিভিলেজ লেভেলে – যা OS kernel (ring 0) থেকেও বেশি পাওয়ারফুল, এবং সবকিছুতে ফুল অ্যাক্সেস রাখে। আর Kernel load হয় ring 0 থেকে। Intel Management Engine (ME) ২০০৬ সাল থেকে (প্রায় ২০০৮-এর দিকে অ্যাডভান্সড ভার্সন) প্রায় সব Intel চিপসেটে ইন্টিগ্রেটেড হয়ে আসছে।\n\nSo, No system is safe.......\n\n(আর ২০২৫-এ ETH Zurich-এর নতুন রিসার্চ দেখাচ্ছে, Intel CPU-তে আরও hardware vulnerabilities আছে – বিস্তারিত: https://lnkd.in/gvsu_jxH)\n\nP.S. Text decoration and formatting using Grok xAI 🚀",
+    "tags": ["Cybersecurity", "Hardware", "Intel ME", "Linux"],
+    "link": "https://lnkd.in/gvsu_jxH"
+  }
+]

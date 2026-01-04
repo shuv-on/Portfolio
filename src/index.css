@@ -1,12 +1,53 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scrolling for the whole page */
 html {
   scroll-behavior: smooth;
 }
-/* Navbar Active State Styling */
+
+@layer utilities {
+  /* Text Gradient Animation (For regular text) */
+  .text-gradient-animate {
+    background: linear-gradient(to right, #2563eb, #9333ea, #db2777, #2563eb);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientMove 3s linear infinite;
+  }
+
+  /* Button Gradient */
+  .btn-gradient-animate {
+    background: linear-gradient(90deg, #2563eb, #9333ea, #db2777, #2563eb);
+    background-size: 300% 100%;
+    animation: gradientMove 3s linear infinite;
+    border: none;
+  }
+
+  /* Keyframe Animation */
+  @keyframes gradientMove {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+}
+
+/* --- Active Nav Styling (Fix for Dark Mode) --- */
 .active-nav {
- @apply bg-sky-100 text-sky-700 dark:bg-sky-500/20 dark:text-sky-300 font-bold rounded-lg shadow-sm transition-all duration-300;
+  /* Background: হালকা শেড (Light & Dark) */
+  @apply bg-gray-100 dark:bg-gray-800/80 font-extrabold rounded-lg shadow-sm transition-all duration-300;
+
+  /* Gradient Text Logic */
+  background-image: linear-gradient(to right, #3b82f6, #a855f7, #ec4899, #3b82f6); /* Blue -> Purple -> Pink */
+  background-size: 200% auto;
+  
+  /* FIX: !important ব্যবহার করা হয়েছে যাতে dark:text-gray-300 ওভাররাইড না করতে পারে */
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  animation: gradientMove 3s linear infinite;
 }

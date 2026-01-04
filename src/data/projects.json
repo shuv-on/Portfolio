@@ -2,9 +2,9 @@
   {
     "id": 1,
     "title": "QR Drop - GNOME Extension",
-    "description": "A productivity tool for Linux users. Quickly generate QR codes from clipboard text or links directly within the GNOME desktop environment.",
+    "description": "Just Copy (Ctrl+C) & Click – instant QR code generation from clipboard. A lightweight tool built for Linux users to solve PC-to-Mobile transfer friction. 100% Offline & Private.",
     "image": "https://extensions.gnome.org/extension-data/icons/icon_9030.png",
-    "tags": ["GJS", "Linux", "Open Source", "GNOME Shell", "GNOME Extension"],
+    "tags": ["JavaScript (GJS)", "Cairo 2D Graphics", "GNOME Shell (ESM)", "Linux", "GNOME Extension"],
     "links": {
       "github": "https://github.com/shuv-on/qr-drop",
       "live": "https://extensions.gnome.org/extension/9030/qr-drop/"
@@ -16,7 +16,7 @@
     "title": "AssetVerse",
     "description": "A comprehensive asset management system. Users can track, manage, and monitor company assets with real-time updates and reporting features.",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
-    "tags": ["React", "Firebase", "Tailwind CSS", "Recharts"],
+    "tags": ["React", "Firebase", "Tailwind CSS", "Recharts", "Node.js", "Express JS", "Javascrip"],
     "links": {
       "github": "https://github.com/shuv-on/asset-verse-client",
       "live": "https://asset-verses.web.app/"
@@ -40,7 +40,7 @@
     "title": "Quiz.IO",
     "description": "An interactive quiz application where users can test their knowledge across various categories. Features real-time scoring and time limits.",
     "image": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=1600&auto=format&fit=crop",
-    "tags": ["React", "API Integration", "CSS3", "Java Spring Boot", "MYSQL"],
+    "tags": ["React", "API Integration", "CSS3"],
     "links": {
       "github": "https://github.com/shuv-on/Quiz.IO",
       "live": "http://quiz.io.shuvon.surge.sh/"
