@@ -4,6 +4,8 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,8 +17,11 @@ function App() {
         <Skills/>
         <Projects/>
         <Blog/>
+        <Contact/>
+        
         <div className="h-[50vh]"></div>
       </main>
+      <Footer/>
     </div>
   );
 }
