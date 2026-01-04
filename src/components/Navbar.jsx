@@ -1,8 +1,8 @@
 // src/components/Navbar.jsx
 import { useState } from "react";
-import { Link } from "react-scroll"; // পেজের সেকশনে স্ক্রল করার জন্য
-import { motion, AnimatePresence } from "framer-motion"; // অ্যানিমেশনের জন্য
-import { Menu, X, Moon, Sun, Download } from "lucide-react"; // আইকন
+import { Link } from "react-scroll"; 
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Moon, Sun, Download } from "lucide-react";
 import useTheme from "../hooks/useTheme";
 
 const Navbar = () => {
@@ -10,9 +10,9 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   const menuItems = [
+    { name: "Home", to: "home" }, 
     { name: "About", to: "about" },
     { name: "Skills", to: "skills" },
-    { name: "Experience", to: "experience" },
     { name: "Projects", to: "projects" },
     { name: "Contact", to: "contact" },
   ];
@@ -36,8 +36,11 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.to}
+                  spy={true}            
                   smooth={true}
+                  offset={-70}       
                   duration={500}
+                  activeClass="active-nav" 
                   className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   {item.name}
@@ -46,7 +49,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Right Side Buttons (Resume & Theme) */}
+          {/* Right Side Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <button 
               onClick={toggleTheme} 
@@ -56,7 +59,7 @@ const Navbar = () => {
             </button>
             
             <a 
-              href="/resume.pdf" // পরে এখানে আপনার রেজুমে লিংক দেবেন
+              href="/resume.pdf" 
               download
               className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/30 font-medium"
             >
@@ -79,7 +82,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown (Animated) */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -93,8 +96,11 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.to}
+                  spy={true}
                   smooth={true}
+                  offset={-70}
                   duration={500}
+                  activeClass="active-nav"
                   onClick={() => setIsOpen(false)}
                   className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
                 >

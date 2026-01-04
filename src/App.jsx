@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About"; 
+import Skills from "./components/Skills";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <main>
         <Hero />
         <About /> 
-        
+        <Skills/>
         <div className="h-[50vh]"></div>
       </main>
     </div>

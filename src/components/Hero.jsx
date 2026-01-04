@@ -4,26 +4,44 @@ import { motion } from "framer-motion";
 import { Download, Github, Linkedin, Mail, Facebook } from "lucide-react";
 
 const Hero = () => {
+  // Animation Variants for Text (একটার পর একটা লেখা আসার জন্য)
+  const textVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { 
+        duration: 0.8, 
+        staggerChildren: 0.2 
+      } 
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-white to-gray-100 dark:from-dark dark:to-gray-900 transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-20">
         
-        {/* Left Side: Text Content */}
+        {/* Left Side: Text Content with Stagger Effect */}
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
           className="flex-1 text-center md:text-left"
         >
-          <h3 className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-2">
+          <motion.h3 variants={itemVariants} className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-2">
             Hello, I am
-          </h3>
+          </motion.h3>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
             Md. Shishir Kaysar <span className="text-primary">Shuvon</span>
-          </h1>
+          </motion.h1>
 
-          <div className="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-6 h-8">
+          <motion.div variants={itemVariants} className="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-6 h-8">
             I am a{" "}
             <TypeAnimation
               sequence={[
@@ -31,7 +49,7 @@ const Hero = () => {
                 2000,
                 "Open Source Contributor",
                 2000,
-                "GNOME Developer",
+                "GNOME Extension Developer",
                 2000,
                 "Linux Enthusiast",
                 2000,
@@ -41,76 +59,82 @@ const Hero = () => {
               repeat={Infinity}
               className="text-primary"
             />
-          </div>
+          </motion.div>
 
-          <p className="text-gray-600 dark:text-gray-400 mb-8 text-base md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
+          <motion.p variants={itemVariants} className="text-gray-600 dark:text-gray-400 mb-8 text-base md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
             A passionate developer from <span className="font-semibold text-gray-800 dark:text-gray-200">MBSTU (ICT)</span> building scalable web applications and contributing to the open-source ecosystem. Specialized in MERN Stack and Linux environments.
-          </p>
+          </motion.p>
 
-          {/* Social Links */}
-          <div className="flex justify-center md:justify-start gap-4 mb-8">
-            <SocialLink href="https://github.com/shuv-on" icon={<Github />} />
-            <SocialLink href="https://linkedin.com/in/shishir-kaysar-shuvon" icon={<Linkedin />} />
-            <SocialLink href="mailto:mdshishirkaysarshuvon.ict.mbstu@gmail.com" icon={<Mail />} />
-            <SocialLink href="https://facebook.com/yourusername" icon={<Facebook />} />
-          </div>
+          {/* Social Links with Pop Animation */}
+          <motion.div variants={itemVariants} className="flex justify-center md:justify-start gap-4 mb-8">
+            <SocialLink href="https://github.com/shuv-on" icon={<Github />} delay={0} />
+            <SocialLink href="https://linkedin.com/in/shishir-kaysar-shuvon" icon={<Linkedin />} delay={0.1} />
+            <SocialLink href="mailto:mdshishirkaysarshuvon.ict.mbstu@gmail.com" icon={<Mail />} delay={0.2} />
+            <SocialLink href="https://facebook.com/yourusername" icon={<Facebook />} delay={0.3} />
+          </motion.div>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a 
               href="/resume.pdf" 
               download 
-              className="px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2"
+              className="px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 transform hover:-translate-y-1"
             >
               <Download size={20} /> Download Resume
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+              className="px-8 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all transform hover:-translate-y-1"
             >
               Contact Me
             </a>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right Side: Image with Animation */}
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1 relative"
-        >
-          <div className="relative w-64 h-64 md:w-96 md:h-96 mx-auto">
+        {/* Right Side: Image with Floating (Levitation) Animation */}
+        <div className="flex-1 relative">
+          <motion.div
+             initial={{ opacity: 0, scale: 0.8 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{ duration: 0.8 }}
+             className="relative w-64 h-64 md:w-96 md:h-96 mx-auto"
+          >
             {/* Background Blob Animation */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
             
-            {/* Image Container */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-              
+            {/* Image Container with Floating Effect */}
+            <motion.div 
+              animate={{ y: [0, -20, 0] }} // উপর-নিচ করবে (Levitation)
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} 
+              className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl"
+            >
               <img 
                 src="https://avatars.githubusercontent.com/u/148075201?s=400&u=7cd701c7daaed0b8d9610df6ec499c96e677d995&v=4" 
                 alt="Shishir Kaysar Shuvon" 
                 className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" 
               />
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
 };
 
-// Reusable Social Link Component
-const SocialLink = ({ href, icon }) => {
+// Reusable Social Link with Spring Pop
+const SocialLink = ({ href, icon, delay }) => {
   return (
-    <a 
+    <motion.a 
       href={href} 
       target="_blank" 
       rel="noreferrer"
-      className="p-3 bg-white dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700"
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 + delay }}
+      className="p-3 bg-white dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700 hover:-translate-y-1"
     >
       {icon}
-    </a>
+    </motion.a>
   );
 };
 
