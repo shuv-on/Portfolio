@@ -1,6 +1,7 @@
 // src/components/About.jsx
 import { motion } from "framer-motion";
-import { Code2, Terminal, Cpu, Globe } from "lucide-react";
+import { Code2, Terminal, Cpu, Globe, BrainCircuit } from "lucide-react"; 
+import Education from "./Education"; 
 
 const About = () => {
   // Animation variants
@@ -13,7 +14,7 @@ const About = () => {
     <section id="about" className="py-20 bg-white dark:bg-dark transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* --- Header Section --- */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -23,14 +24,14 @@ const About = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             About 
-            {/* Animated Gradient on "Me" */}
+            {/* Header Animation */}
             <span className="text-gradient-animate font-extrabold ml-2">Me</span>
           </h2>
-          {/* Animated Gradient Background on Underline */}
+          {/* Underline Animation */}
           <div className="w-20 h-1 btn-gradient-animate mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           
           {/* Left Side: Image */}
           <motion.div 
@@ -40,14 +41,25 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 group">
               <img 
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Coding Setup" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-white font-medium">Building scalable solutions & exploring Linux internals.</p>
+              <div className="absolute inset-0 bg-sky-600/10 dark:bg-sky-600/20 group-hover:bg-transparent transition-colors duration-300"></div>
+            </div>
+
+            {/* Floating Badge */}
+             <div className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 hidden md:block animate-bounce-slow">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-sky-100 dark:bg-sky-900/30 rounded-lg">
+                  <Terminal className="text-sky-600 dark:text-sky-400" size={24} />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Focus</p>
+                  <p className="text-sm font-bold text-gray-900 dark:text-white">Linux & Open Source</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -60,64 +72,65 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Aspiring Software Engineer & Linux Enthusiast
+              Aspiring Software Engineer & <span className="text-gradient-animate">Linux Enthusiast</span>
             </h3>
             
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-justify">
               I am currently pursuing a Bachelor's degree in 
-              {/* Animated Text */}
-              <span className="text-gradient-animate font-bold mx-1">ICT at MBSTU</span>. 
-              My passion lies in exploring the Linux ecosystem, contributing to open-source projects, and architecting efficient software solutions.
+              {/* Animation Added Here 👇 */}
+              <span className="text-gradient-animate font-bold mx-1">ICT at Mawlana Bhashani Science and Technology University (MBSTU)</span>. 
+              My passion lies in exploring the <strong>Linux ecosystem</strong>, contributing to open-source projects, and architecting efficient software solutions.
             </p>
 
-            <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-justify">
               With a strong foundation in 
-              {/* Animated Text */}
-              <span className="text-gradient-animate font-bold mx-1">C, C++, Java, and Python</span>, 
-              I actively solve complex algorithmic problems on platforms like LeetCode and CodeForces. I am also the developer of the "QR Drop" Gnome Extension.
+              {/* Animation Added Here 👇 */}
+              <span className="text-gradient-animate font-bold mx-1">C, C++, Java, Javascript and Python</span>, 
+              I actively solve complex algorithmic problems on platforms like 
+              {/* Animation Added Here 👇 */}
+              <span className="text-gradient-animate font-bold mx-1">LeetCode and CodeForces</span>.
             </p>
 
-            {/* Interest Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <FeatureCard 
-                icon={<Code2 className="text-blue-600 dark:text-blue-400" />} // Fixed Color
-                title="Full Stack Dev"
-                desc="MERN Stack & Next.js"
-              />
-              <FeatureCard 
-                icon={<Terminal className="text-purple-600 dark:text-purple-400" />} // Fixed Color
-                title="Linux & Open Source"
-                desc="Arch, Ubuntu Gnome Extensions"
-              />
-              <FeatureCard 
-                icon={<Cpu className="text-pink-600 dark:text-pink-400" />} // Fixed Color
-                title="Problem Solving"
-                desc="DSA & Algorithms"
-              />
-              <FeatureCard 
-                icon={<Globe className="text-indigo-600 dark:text-indigo-400" />} // Fixed Color
-                title="Tech Enthusiast"
-                desc="Always learning new tech"
-              />
+            {/* --- Cards Section --- */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Card 1: Full Stack */}
+              <div className="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-sky-500/50 transition-colors">
+                <Code2 className="text-sky-600 dark:text-sky-400 mb-2" size={24} />
+                <h4 className="font-bold text-gray-900 dark:text-white text-sm">Full Stack</h4>
+                <p className="text-xs text-gray-500 mt-1">MERN & Next.js</p>
+              </div>
+
+              {/* Card 2: Open Source */}
+              <div className="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-purple-500/50 transition-colors">
+                <Globe className="text-purple-600 dark:text-purple-400 mb-2" size={24} />
+                <h4 className="font-bold text-gray-900 dark:text-white text-sm">Open Source</h4>
+                <p className="text-xs text-gray-500 mt-1">Gnome Ext.</p>
+              </div>
+
+              {/* Card 3: Problem Solving */}
+              <div className="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-green-500/50 transition-colors">
+                <BrainCircuit className="text-green-600 dark:text-green-400 mb-2" size={24} />
+                <h4 className="font-bold text-gray-900 dark:text-white text-sm">Problem Solving</h4>
+                <p className="text-xs text-gray-500 mt-1">DSA & Logic</p>
+              </div>
             </div>
+
           </motion.div>
         </div>
+
+        {/* --- Education Section --- */}
+        <div className="mt-20">
+            <div className="border-t border-gray-200 dark:border-gray-800 mb-16 relative">
+                 <div className="absolute left-1/2 -translate-x-1/2 -top-3 bg-white dark:bg-dark px-4 text-gray-400 text-sm font-medium">
+                    Academic Journey
+                 </div>
+            </div>
+            <Education />
+        </div>
+
       </div>
     </section>
   );
 };
-
-// Small Card Component
-const FeatureCard = ({ icon, title, desc }) => (
-  <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow group">
-    <div className="mt-1 p-2 bg-white dark:bg-gray-900 rounded-lg shadow-sm group-hover:shadow-md transition-all">
-      {icon}
-    </div>
-    <div>
-      <h4 className="font-semibold text-gray-900 dark:text-white text-sm">{title}</h4>
-      <p className="text-xs text-gray-500 dark:text-gray-400">{desc}</p>
-    </div>
-  </div>
-);
 
 export default About;
