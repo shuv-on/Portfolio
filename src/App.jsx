@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Education from './components/Education';
 
 const App = () => {
   // Google Schema Markup (গুগলকে আপনার পরিচয় দেওয়ার জন্য)
@@ -68,6 +69,7 @@ const App = () => {
          <main className="flex-grow">
            <Hero />
            <About />
+           <Education/>
            <Skills />
            <Projects />
            <Blog />

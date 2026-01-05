@@ -1,7 +1,29 @@
-import { Link } from "react-scroll";
+import { useState, useEffect } from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from "lucide-react";
 
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Scroll Detection Logic
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
   const socialLinks = [
     { icon: Github, href: "https://github.com/shuv-on" },
     { icon: Linkedin, href: "https://linkedin.com/in/shishir-kaysar-shuvon" },
@@ -17,12 +39,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-100 dark:bg-gray-950 pt-16 pb-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <footer className="bg-gray-100 dark:bg-gray-950 pt-16 pb-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           
-          {/* 1. Brand & Description */}
+          {/* Brand */}
           <div className="space-y-4">
             <Link 
               to="home" 
@@ -39,7 +62,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* 2. Quick Links */}
+          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -49,7 +72,7 @@ const Footer = () => {
                     to={link.to}
                     smooth={true}
                     duration={500}
-                    className="text-gray-600 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 cursor-pointer transition-colors text-sm font-medium flex items-center gap-1 group"
+                    className="text-gray-600 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 cursor-pointer transition-colors text-sm font-medium flex items-center gap-1 group w-fit"
                   >
                     <span className="w-0 group-hover:w-2 h-[1px] bg-sky-600 transition-all duration-300"></span>
                     {link.name}
@@ -59,7 +82,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 3. Socials */}
+          {/* Socials */}
           <div>
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Connect</h3>
             <div className="flex gap-4">
@@ -92,6 +115,41 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* 🔥 Minimal Floating Back to Top Button 🔥 */}
+      <AnimatePresence>
+        {isVisible && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            onClick={scrollToTop}
+            // Minimal Styling Classes
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full 
+                       bg-white dark:bg-gray-800 
+                       text-gray-600 dark:text-gray-400
+                       border border-gray-200 dark:border-gray-700
+                       shadow-lg hover:shadow-xl 
+                       hover:text-purple-600 dark:hover:text-purple-400
+                       hover:border-purple-500/50 dark:hover:border-purple-500/50
+                       transition-all duration-300"
+            title="Back to Top"
+          >
+            {/* Infinite Upward Animation for Arrow */}
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ 
+                duration: 1.5, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+            >
+              <ArrowUp size={24} strokeWidth={2} />
+            </motion.div>
+          </motion.button>
+        )}
+      </AnimatePresence>
+      
     </footer>
   );
 };

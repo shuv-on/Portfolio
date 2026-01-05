@@ -4,24 +4,28 @@
     "title": "QR Drop - GNOME Extension",
     "description": "Just Copy (Ctrl+C) & Click – instant QR code generation from clipboard. A lightweight tool built for Linux users to solve PC-to-Mobile transfer friction. 100% Offline & Private.",
     "image": "https://extensions.gnome.org/extension-data/icons/icon_9030.png",
-    "tags": ["JavaScript (GJS)", "Cairo 2D Graphics", "GNOME Shell (ESM)", "Linux", "GNOME Extension"],
+    "tags": ["JavaScript (GJS)","QR code generator", "Cairo 2D Graphics", "GNOME Shell", "Linux", "GNOME Extensions"],
     "links": {
       "github": "https://github.com/shuv-on/qr-drop",
       "live": "https://extensions.gnome.org/extension/9030/qr-drop/"
     },
-    "category": "Open Source"
+    "category": "Open Source",
+    "challenges": "Understanding the GNOME Shell architecture and handling Clipboard API asynchronously was challenging. Also, drawing QR codes using Cairo graphics required precise coordinate calculations.",
+    "futurePlans": "I plan to add support for Wi-Fi credential sharing via QR code and implement a history feature to access previously generated codes."
   },
   {
     "id": 2,
     "title": "AssetVerse",
     "description": "A comprehensive asset management system. Users can track, manage, and monitor company assets with real-time updates and reporting features.",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
-    "tags": ["React", "Firebase", "Tailwind CSS", "Recharts", "Node.js", "Express JS", "Javascrip"],
+    "tags": ["React", "Firebase", "Tailwind CSS", "Recharts", "Node.js"],
     "links": {
       "github": "https://github.com/shuv-on/asset-verse-client",
       "live": "https://asset-verses.web.app/"
     },
-    "category": "Web App"
+    "category": "Web App",
+    "challenges": "Managing real-time state updates across multiple users and implementing a complex search/filter system for assets was the main hurdle.",
+    "futurePlans": "Integration with barcode scanners for physical asset tracking and generating PDF reports for monthly audits."
   },
   {
     "id": 3,
@@ -33,7 +37,9 @@
       "github": "https://github.com/shuv-on/travel-ease-client",
       "live": "https://travel-ease-1dfb8.web.app/"
     },
-    "category": "Full Stack"
+    "category": "Full Stack",
+    "challenges": "Ensuring secure user authentication (JWT) and optimizing database queries for faster search results were significant challenges.",
+    "futurePlans": "Adding a payment gateway integration (Stripe/SSLCommerz) and an AI-based trip planner feature."
   },
   {
     "id": 4,
@@ -45,6 +51,8 @@
       "github": "https://github.com/shuv-on/Quiz.IO",
       "live": "http://quiz.io.shuvon.surge.sh/"
     },
-    "category": "Web App"
+    "category": "Web App",
+    "challenges": "Handling timer synchronization and preventing users from reloading the page during a quiz session required careful state management.",
+    "futurePlans": "Implementing a multiplayer mode where friends can compete against each other in real-time."
   }
 ]
