@@ -80,7 +80,7 @@ const Hero = () => {
           {/* Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a 
-              href="/resume.pdf" 
+              href="https://docs.google.com/document/d/12Gw0do2pUtKdyrWKvJ2GDbyMcw-pK2ntwmilGEwA6dA/export?format=pdf" 
               download 
               // 👇 Animated Gradient Button Class Added Here
               className="px-8 py-3 text-white btn-gradient-animate rounded-full font-medium shadow-lg shadow-purple-500/30 flex items-center justify-center gap-2 transform hover:-translate-y-1 hover:shadow-xl transition-all"

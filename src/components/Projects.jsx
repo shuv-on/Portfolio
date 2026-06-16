@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, Globe, X, AlertTriangle, Rocket, ArrowRight } from "lucide-react";
 import projectsData from "../data/projects.json";
+import QRDropAnimation from "./QRDropAnimation"; // 👈 অ্যানিমেশন কম্পোনেন্ট ইমপোর্ট করা হলো
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -59,14 +60,23 @@ const Projects = () => {
 
               {/* Modal Content */}
               <div className="flex flex-col md:flex-row">
-                {/* Image Section */}
-                <div className="w-full md:w-2/5 h-64 md:h-auto relative">
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title} 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
+                
+                {/* 🛠️ Dynamic Media Section: Image OR Live Code Animation */}
+                <div className="w-full md:w-2/5 p-4 md:p-6 bg-gray-100 dark:bg-gray-950 flex items-center justify-center min-h-[260px] md:min-h-auto relative">
+                  {selectedProject.hasAnimation ? (
+                    // যদি জেসন ফাইলে true থাকে, তবে লাইভ অ্যানিমেশন দেখাবে
+                    <div className="w-full">
+                      <QRDropAnimation />
+                    </div>
+                  ) : (
+                    // অন্যথায় সাধারণ ইমেজ দেখাবে
+                    <img 
+                      src={selectedProject.image} 
+                      alt={selectedProject.title} 
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  )}
+                  <div className="absolute top-6 left-6">
                     <span className="px-3 py-1 text-xs font-bold text-white btn-gradient-animate rounded-full shadow-lg">
                       {selectedProject.category}
                     </span>
@@ -144,25 +154,16 @@ const Projects = () => {
   );
 };
 
-// Card Component with Gradient Title & Button
+// Card Component
 const ProjectCard = ({ project, index, onOpenModal }) => {
-  // Variants for the arrow animation
   const arrowVariants = {
     idle: {
-      x: [0, 5, 0], // Constant loop
-      transition: {
-        duration: 1.5,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
+      x: [0, 5, 0],
+      transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
     },
     hover: {
-      x: 8, // Move further right and stop on hover
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20
-      }
+      x: 8,
+      transition: { type: "spring", stiffness: 300, damping: 20 }
     }
   };
 
@@ -193,8 +194,6 @@ const ProjectCard = ({ project, index, onOpenModal }) => {
 
       {/* Content Section */}
       <div className="p-6 flex flex-col flex-grow">
-        
-        {/* 🔥 ANIMATED TITLE ON HOVER 🔥 */}
         <h3 
           className="text-xl font-bold mb-2 cursor-pointer transition-all duration-300
                      text-gray-900 dark:text-white 
@@ -217,35 +216,20 @@ const ProjectCard = ({ project, index, onOpenModal }) => {
             ))}
           </div>
           
-          {/* 👇 BUTTON WITH GRADIENT HOVER & LOOP ANIMATION 👇 */}
           <motion.button 
             onClick={onOpenModal}
             initial="idle"
             whileHover="hover"
-            // Button Styles:
-            // 1. Idle: Transparent with Purple Border
-            // 2. Hover: Gradient Background + Transparent Border + White Text
             className="w-full py-2.5 rounded-xl border-2 border-purple-600/20 text-purple-600 dark:text-purple-400 font-bold text-sm 
                        hover:border-none hover:bg-gradient-to-r hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 hover:text-white
                        transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden"
-            
-            // Continuous Border Pulse (Runs when idle)
             animate={{ 
                 borderColor: ["rgba(147, 51, 234, 0.2)", "rgba(147, 51, 234, 0.6)", "rgba(147, 51, 234, 0.2)"]
             }}
-            transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
             <span className="relative z-10">View Details</span>
-            
-            {/* Arrow Animation */}
-            <motion.span
-                variants={arrowVariants}
-                className="relative z-10"
-            >
+            <motion.span variants={arrowVariants} className="relative z-10">
                 <ArrowRight size={18} />
             </motion.span>
           </motion.button>

@@ -9,6 +9,7 @@
       "github": "https://github.com/shuv-on/qr-drop",
       "live": "https://extensions.gnome.org/extension/9030/qr-drop/"
     },
+    "hasAnimation": true,
     "category": "Open Source",
     "challenges": "Understanding the GNOME Shell architecture and handling Clipboard API asynchronously was challenging. Also, drawing QR codes using Cairo graphics required precise coordinate calculations.",
     "futurePlans": "I plan to add support for Wi-Fi credential sharing via QR code and implement a history feature to access previously generated codes."
