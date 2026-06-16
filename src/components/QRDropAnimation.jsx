@@ -10,17 +10,17 @@ const QRDropAnimation = () => {
       // ২ সেকেন্ড পর কপি হবে
       setTimeout(() => {
         setStep(1); // Copying / Copied!
-      }, 2000);
+      }, 100);
 
       // ২.৮ সেকেন্ড পর প্রোসেসিং দেখাবে
       setTimeout(() => {
         setStep(2); // Processing grid
-      }, 2800);
+      }, 1500);
 
       // ৩.৫ সেকেন্ড পর ফাইনাল কিউআর কোড পপ-আপ করবে
       setTimeout(() => {
         setStep(3); // Final QR Code
-      }, 3500);
+      }, 3000);
 
     }, 7500); // টোটাল লুপ টাইম ৭.৫ সেকেন্ড
 
