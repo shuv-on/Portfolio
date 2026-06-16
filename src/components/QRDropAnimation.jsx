@@ -54,7 +54,7 @@ const QRDropAnimation = () => {
               <input 
                 type="text" 
                 readOnly
-                value="https://github.com/shuvon/qr-drop"
+                value="https://github.com/shuv-on/qr-drop"
                 className={`w-full font-mono text-sm bg-slate-950 text-slate-300 border px-4 py-3 rounded-lg transition-all duration-300 outline-none ${
                   step >= 1 ? 'border-indigo-500/50 ring-1 ring-indigo-500/30 text-indigo-200' : 'border-slate-800'
                 }`}
