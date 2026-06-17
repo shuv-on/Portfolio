@@ -10,7 +10,7 @@ const QRDropAnimation = () => {
       // ২ সেকেন্ড পর কপি হবে
       setTimeout(() => {
         setStep(1); // Copying / Copied!
-      }, 100);
+      }, 1000);
 
       // ২.৮ সেকেন্ড পর প্রোসেসিং দেখাবে
       setTimeout(() => {
@@ -97,12 +97,14 @@ const QRDropAnimation = () => {
         </div>
 
         {/* Right Side (Grid 7): Instant QR Generator Flow Canvas */}
-        <div className="lg:col-span-7 bg-slate-900/40 border border-slate-800/60 rounded-xl p-6 flex flex-col justify-between items-center relative min-h-[240px]">
+        {/* 🛠️ পরিবর্তন: min-h-[240px] বাদ দিয়ে h-[300px] ফিক্সড করা হয়েছে যাতে সাইজ না নড়ে */}
+        <div className="lg:col-span-7 bg-slate-900/40 border border-slate-800/60 rounded-xl p-6 flex flex-col justify-between items-center relative h-[300px]">
           <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest w-full text-center mb-2">
             Instant QR Code Generation
           </h4>
 
-          <div className="flex-grow flex items-center justify-center w-full my-4">
+          {/* 🛠️ কন্টেন্ট হোল্ডারকেও h-full দিয়ে ফ্লেক্স গ্রো করানো হয়েছে */}
+          <div className="flex-grow flex items-center justify-center w-full h-48 my-2 overflow-hidden">
             {step === 0 ? (
               /* Waiting State */
               <div className="text-center text-slate-500 animate-fade-in">
@@ -122,7 +124,7 @@ const QRDropAnimation = () => {
               </div>
             ) : (
               /* Final State: Real-Looking Matrix Custom QR Code */
-              <div className="flex flex-col items-center bg-white p-4 rounded-2xl shadow-2xl border border-slate-200 transform scale-110 transition-all duration-500 animate-fade-in-up">
+              <div className="flex flex-col items-center bg-white p-4 rounded-2xl shadow-2xl border border-slate-200 transform scale-105 transition-all duration-500 animate-fade-in-up">
                 
                 {/* Visual Representation of Full QR Node */}
                 <div className="w-32 h-32 bg-slate-900 p-2 rounded-xl flex flex-wrap justify-between content-between relative shadow-md">
